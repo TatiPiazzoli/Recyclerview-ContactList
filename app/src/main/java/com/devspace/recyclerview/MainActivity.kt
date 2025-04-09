@@ -5,6 +5,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         val rvlist = findViewById<RecyclerView>(R.id.rv_list)
+        val adapter = ContactListAdapter()
+
+        rvlist.adapter = adapter
+        rvlist.layoutManager = LinearLayoutManager(this)
+
+        adapter.submitList(contacts)
 
     }
 }
@@ -41,7 +48,7 @@ val contacts = listOf(
         R.drawable.sample11
     ),
     Contact(
-        "Jorginho",
+        "Jorge",
         "+55(48) 99632-3258",
         R.drawable.sample8
     ),
@@ -66,22 +73,22 @@ val contacts = listOf(
         R.drawable.sample15
     ),
     Contact(
-        "Rafinha",
+        "Rafael",
         "+55(48) 99896-7231",
         R.drawable.sample1
     ),
     Contact(
-        "Titito",
+        "Francisco",
         "+55(48) 99369-5436",
         R.drawable.sample2
     ),
     Contact(
-        "Tia Lena",
+        "Lena",
         "+55(48) 99369-7410",
         R.drawable.sample4
     ),
     Contact(
-        "Tia Maza",
+        "Maza",
         "+55(48) 99203-0205",
         R.drawable.sample6
     ),
